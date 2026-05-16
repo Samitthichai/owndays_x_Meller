@@ -1,9 +1,10 @@
 "use client";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import HamburgerMenu from "@/components/ui/hamburgetMenu";
+import HamburgerMenu from "@/components/ui/hamburger-menu";
 import { Text } from "@/components/ui/typography";
-import { navLinks, secondaryLinks } from "@/constant/navlink";
+import { navLinks, secondaryLinks } from "@/constants/nav-links";
+
 import { useState } from "react";
 
 export default function MobileMenu() {

@@ -1,6 +1,7 @@
 import logoImg from "@/assets/images/Collab-Logo.png";
 import { Text } from "@/components/ui/typography";
-import { navLinks } from "@/constant/navlink";
+
+import { navLinks } from "@/constants/nav-links";
 import Image from "next/image";
 import MobileMenu from "./mobile-menu";
 

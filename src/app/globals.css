@@ -70,7 +70,6 @@ body {
 }
 
 .nav-link {
-  font-family: var(--font-favorit), sans-serif;
   font-size: 15.07px;
   font-weight: 514;
   cursor: pointer;
@@ -113,7 +112,6 @@ body {
 }
 
 .text-gt-american-display {
-  font-family: var(--font-gt-american), sans-serif;
   font-size: 110px;
   display: inline-block;
   line-height: 0.76;

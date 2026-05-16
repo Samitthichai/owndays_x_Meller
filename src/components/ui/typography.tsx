@@ -5,8 +5,8 @@ const textVariants = cva("", {
   variants: {
     variant: {
       display: "text-gt-american-display",
-      navLink: "nav-link",
-      navLinkMobile: "nav-link text-4xl",
+      gt: "font-[family-name:var(--font-gt-american)]",
+      favorit: "font-[family-name:var(--font-favorit)]",
       body: "font-[family-name:var(--font-sans)] text-base",
     },
   },

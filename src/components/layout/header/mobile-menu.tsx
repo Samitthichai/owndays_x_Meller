@@ -22,8 +22,8 @@ export default function MobileMenu() {
             {navLinks.map((link) => (
               <li key={link}>
                 <Text
-                  variant="navLinkMobile"
-                  className="text-[18px]! font-semibold! text-(--color-brand-orange)! "
+                  variant="favorit"
+                  className="text-[18px] font-semibold text-(--color-brand-orange) "
                   as="a"
                   href="#"
                 >
@@ -37,9 +37,9 @@ export default function MobileMenu() {
             {secondaryLinks.map((link) => (
               <li key={link}>
                 <Text
-                  variant="navLinkMobile"
+                  variant="favorit"
                   as="a"
-                  className="text-(--color-brand-orange)! text-[11px]!"
+                  className="text-(--color-brand-orange) font-[514] text-[11px]"
                 >
                   {link}
                 </Text>

@@ -1,0 +1,30 @@
+export default function HamburgerIcon() {
+  return (
+    <svg
+      width="20"
+      height="24"
+      viewBox="0 0 20 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0 4.5H20V5.5H0V4.5Z"
+        fill="white"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0 11.832H20V12.832H0V11.832Z"
+        fill="white"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0 18.5H20V19.5H0V18.5Z"
+        fill="white"
+      />
+    </svg>
+  );
+}

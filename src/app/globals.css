@@ -100,6 +100,10 @@ body {
   border-radius: 9999px;
 }
 
+.swatch-btn {
+  background-clip: content-box;
+}
+
 @layer utilities {
   .container-main {
     width: 100%;
@@ -121,6 +125,35 @@ body {
   @media (max-width: 768px) {
     font-size: 70px;
   }
+}
+
+.text-card-product-name-title {
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 67.51px;
+  letter-spacing: 1.05px;
+
+
+}
+.text-card-product-code {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21.94px;
+  letter-spacing: 0.7px;
+}
+
+.text-card-product-price {
+  font-weight: 500;
+  font-size: 23;
+  line-height: 27.14px;
+  letter-spacing: 0.86px;
+}
+
+.text-card-product-tax {
+  font-weight: 514;
+  font-size: 15;
+  line-height: 27.14px;
+  letter-spacing: 0.86px;
 }
 
 :root {

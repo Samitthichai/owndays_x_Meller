@@ -1,9 +1,6 @@
-type Props = {
-  size?: number;
-  color?: string;
-};
+import { iconProps } from "@/types/iconProps";
 
-export default function CloseIcon({ size = 28, color = "#FF6723" }: Props) {
+export default function CloseIcon({ size = 28, color = "#FF6723" }: iconProps) {
   return (
     <svg
       width={size}

@@ -1,14 +1,13 @@
 import { iconProps } from "@/types/iconProps";
 
 export default function CartIcon({
-  size = 37,
+  size,
   color = "#FF6723",
   className,
 }: iconProps) {
   return (
     <svg
-      width={size}
-      height={size}
+      {...(size ? { width: size, height: size } : {})}
       viewBox="0 0 37 37"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -1,10 +1,9 @@
 import { iconProps } from "@/types/iconProps";
 
-export default function IgIcon({ size, className, color }: iconProps) {
+export default function IgIcon({ size, className, color = "#FF6723" }: iconProps) {
   return (
     <svg
-      width={size}
-      height={size}
+      {...(size ? { width: size, height: size } : {})}
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

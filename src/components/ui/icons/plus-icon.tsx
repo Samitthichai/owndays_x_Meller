@@ -1,14 +1,13 @@
 import { iconProps } from "@/types/iconProps";
 
 export default function PlusIcon({
-  size = 28,
+  size,
   color = "black",
   className,
 }: iconProps) {
   return (
     <svg
-      width={size}
-      height={size}
+      {...(size ? { width: size, height: size } : {})}
       viewBox="0 0 28 28"
       className={className}
       fill="none"

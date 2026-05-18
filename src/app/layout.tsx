@@ -1,3 +1,5 @@
+import Footer from "@/components/layout/footer/footer";
+import Header from "@/components/layout/header/header";
 import type { Metadata } from "next";
 import { Barlow_Condensed, DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
@@ -33,11 +35,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${barlowCondensed.variable} ${dmSans.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col ">{children}</body>
-    </html>
+    <>
+      <Header />
+      <html
+        lang="en"
+        className={`${inter.variable} ${barlowCondensed.variable} ${dmSans.variable} h-full antialiased`}
+      >
+        <body className="min-h-full flex flex-col ">{children}</body>
+      </html>
+      <Footer />
+    </>
   );
 }

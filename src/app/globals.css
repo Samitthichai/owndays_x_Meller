@@ -76,6 +76,26 @@ body {
   cursor: pointer;
   letter-spacing: 0.7px;
   color: var(--color-brand-white);
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -3px;
+
+    width: 0;
+    height: 1px;
+
+    background-color: var(--color-brand-white);
+
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+  &:hover::after {
+    width: 100%;
+  }
 }
 
 .btn-primary {
@@ -161,7 +181,7 @@ body {
 }
 
 .text-footer-copyrigth {
-  color: #ff6723;
+  color: var(--color-brand-orange);
   font-size: 10px;
   font-weight: 400;
   line-height: 20px;
@@ -174,6 +194,27 @@ body {
   font-size: 14px;
   cursor: pointer;
   letter-spacing: 0.7px;
+  transition: color 0.2s ease-in-out;
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -3px;
+
+    width: 0;
+    height: 1px;
+
+    background-color: var(--color-brand-orange);
+
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+  &:hover::after {
+    width: 100%;
+  }
   @media (min-width: 1024px) {
     font-size: 18px;
   }
@@ -187,6 +228,105 @@ body {
   @media (min-width: 1024px) {
     font-size: 13px;
   }
+}
+
+.product-detail-title {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+
+  @media (min-width: 1024px) {
+    font-size: 35px;
+  }
+}
+
+.chip {
+  font-family: var(--font-favorit);
+  border: 1px solid var(--color-brand-black);
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  font-weight: 514;
+  font-size: 8px;
+  @media (min-width: 1024px) {
+    font-size: 11px;
+  }
+}
+
+.chip:hover {
+  border-color: #9ca3af;
+}
+.chip-selected {
+  font-family: var(--font-favorit);
+  background: var(--color-brand-black);
+  color: var(--color-brand-white);
+  font-weight: 514;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.product-description {
+  font-family: var(--font-noto-sans-jp);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 30px;
+  letter-spacing: 0;
+
+  @media (min-width: 1024px) {
+    font-size: 14px;
+  }
+}
+
+.cta-btn {
+  display: flex;
+  width: 100%;
+  max-width: 373px;
+  height: 54px;
+  margin-inline: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 24px;
+  color: var(--color-brand-white);
+  font-family: var(--font-favorit);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  @media (min-width: 1024px) {
+    padding: 17px 103px;
+    font-size: 16px;
+  }
+}
+
+.cta-btn-orange {
+  background: var(--color-brand-orange);
+}
+.cta-btn-orange:hover:not(:disabled) {
+  background: var(--color-brand-orange-after);
+}
+
+.cta-btn-black {
+  background: var(--color-brand-black);
+}
+.cta-btn-black:hover:not(:disabled) {
+  background: var(--color-brand-black-after);
+}
+
+.cta-btn:disabled,
+.cta-btn-disabled {
+  background: var(--color-brand-disable);
+  color: rgba(0, 0, 0, 0.4);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 :root {

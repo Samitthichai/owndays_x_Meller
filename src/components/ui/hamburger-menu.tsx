@@ -1,4 +1,4 @@
-import HamburgerIcon from "./hamburger-icon";
+import HamburgerIcon from "./icons/hamburger-icon";
 
 type Props = {
   onClick: () => void;

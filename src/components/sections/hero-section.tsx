@@ -4,7 +4,7 @@ import { Text } from "@/components/ui/typography";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-169.25 lg:h-158.25 -mt-15.5 ">
+    <section className="relative w-full h-169.25 lg:h-auto lg:aspect-1440/633 -mt-15.5 border-b-2 border-black">
       <picture className="block w-full h-full">
         <source media="(min-width: 1024px)" srcSet={heroDesktop.src} />
         <img

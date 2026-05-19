@@ -16,8 +16,8 @@ export default function MobileMenu() {
         <HamburgerMenu onClick={() => setIsOpen(true)} />
       </DialogTrigger>
 
-      <DialogContent className="bg-black flex flex-col">
-        <div className="flex flex-col gap-15 w-25.75">
+      <DialogContent className="bg-black flex flex-col" side="right">
+        <div className="flex flex-col gap-15  pl-10  w-fit">
           <ul className="flex flex-col gap-6.25 ">
             {navLinks.map((link) => (
               <li key={link}>

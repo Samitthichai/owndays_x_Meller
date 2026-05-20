@@ -1,36 +1,31 @@
 "use client";
 
 import { ProductSKU } from "@/types/product";
-import { buildImageUrl, formatProductCode } from "@/utils/format";
-import { useCallback, useState } from "react";
+import { buildImageUrl } from "@/utils/format";
+import useSkuSelection from "./use-sku-selection";
 
 type UseProductDetailModalProps = {
   skus: ProductSKU[];
   productBaseCode: string;
   initialSkuIndex?: number;
 };
-export default function useProductDetailModal(
-  props: UseProductDetailModalProps,
-) {
-  const { skus, productBaseCode, initialSkuIndex } = props;
-  const [selectedSkuIndex, setSelectedSkuIndex] = useState(
-    initialSkuIndex ?? 0,
-  );
 
-  const selectedSku = skus[selectedSkuIndex] ?? skus[0];
+export default function useProductDetailModal({
+  skus,
+  productBaseCode,
+  initialSkuIndex = 0,
+}: UseProductDetailModalProps) {
+  const { selectedSkuIndex, setSelectedSkuIndex, selectedSku, productCode } =
+    useSkuSelection(skus, productBaseCode, initialSkuIndex);
+
   const images =
     selectedSku?.images.map((img) => buildImageUrl(img.path)) ?? [];
-  const productCode = selectedSku
-    ? formatProductCode(productBaseCode, selectedSku)
-    : productBaseCode;
 
-  const redirectToOwndaysProducts = useCallback(
-    (code: string, skuId: number) => {
-      const url = `https://www.owndays.com/jp/ja/products/${code}?sku=${skuId}`;
-      window.open(url, "_blank", "noopener,noreferrer");
-    },
-    [],
-  );
+  function redirectToOwndaysProducts(code: string, skuId: number) {
+    const url = `https://www.owndays.com/jp/ja/products/${code}?sku=${skuId}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+
   return {
     images,
     productCode,

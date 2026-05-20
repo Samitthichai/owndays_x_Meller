@@ -43,7 +43,6 @@ export default function ProductDetailModal({
     initialSkuIndex,
   });
 
-  const newLocal = "relative w-[420px] h-full shrink-0";
   return (
     <DialogContent
       side="right"
@@ -59,12 +58,13 @@ export default function ProductDetailModal({
     >
       <div className="flex h-72.25 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
         {images.map((src, index) => (
-          <div key={index} className={newLocal}>
+          <div key={index} className="relative w-63 lg:w-105 h-full shrink-0">
             <Image
               loading="lazy"
               src={src}
               alt={`${productName} ${index + 1}`}
               fill
+              sizes="(max-width: 1024px) 100vw, 616px"
               className="object-contain "
             />
           </div>

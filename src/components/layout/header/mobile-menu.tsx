@@ -19,15 +19,15 @@ export default function MobileMenu() {
       <DialogContent className="bg-black flex flex-col" side="right">
         <div className="flex flex-col gap-15  pl-10  w-fit">
           <ul className="flex flex-col gap-6.25 ">
-            {navLinks.map((link) => (
-              <li key={link}>
+            {navLinks.map((navLink) => (
+              <li key={navLink.label}>
                 <Text
                   variant="favorit"
                   className="text-[18px] font-semibold text-(--color-brand-orange) "
                   as="a"
-                  href="#"
+                  href={navLink.href}
                 >
-                  {link}
+                  {navLink.label}
                 </Text>
               </li>
             ))}

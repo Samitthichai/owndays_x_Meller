@@ -41,6 +41,8 @@ function OnlineStore({
   containerClassName?: string;
   rowClassName?: string;
 }) {
+  const owndayStore = process.env.NEXT_PUBLIC_OWNDAYS_STORE;
+  const owndayJPJa = process.env.NEXT_PUBLIC_OWNDAYS_JP_JA;
   return (
     <div className={containerClassName}>
       <div className={rowClassName ?? "flex items-center gap-3.5"}>
@@ -48,7 +50,7 @@ function OnlineStore({
         <Text
           variant="favorit"
           as="a"
-          href="#"
+          href={owndayJPJa}
           className={`font-semibold text-(--color-brand-orange) ${titleClassName}`}
         >
           ONLINE STORE
@@ -58,7 +60,7 @@ function OnlineStore({
         <Text
           variant="favorit"
           as="a"
-          href="#"
+          href={owndayStore}
           className="nav-link-secondary-footer text-(--color-brand-orange)"
         >
           OWNDAYS.COM
@@ -82,15 +84,16 @@ function Copyright() {
 }
 
 export default function Footer() {
+  const redireLinkIg = process.env.NEXT_PUBLIC_OWNDAY_IG;
   return (
     <footer className="bg-(--color-brand-black) w-full border-t-2 border-(--color-brand-orange)">
       <div className="md:hidden">
-        {navLinks.map((link) => (
+        {navLinks.map((navLink) => (
           <div
-            key={link}
+            key={navLink.label}
             className="flex items-center justify-between px-7.5 py-4 border-b-2 border-(--color-brand-orange) h-15"
           >
-            <NavLink label={link} />
+            <NavLink label={navLink.label} />
             <ChevronRightIcon size={11} />
           </div>
         ))}
@@ -111,7 +114,9 @@ export default function Footer() {
             ))}
           </ul>
           <div className="mt-7.5">
-            <IgIcon size={16} />
+            <a href={redireLinkIg}>
+              <IgIcon size={16} />
+            </a>
           </div>
         </div>
 
@@ -124,14 +129,16 @@ export default function Footer() {
         <div className="grid grid-cols-[65%_35%] min-h-45">
           <div className="border-r-2 border-(--color-brand-orange) px-14 py-14">
             <ul className="flex flex-col gap-5">
-              {navLinks.map((link) => (
-                <li key={link}>
-                  <NavLink label={link} />
+              {navLinks.map((navLink) => (
+                <li key={navLink.label}>
+                  <NavLink label={navLink.label} />
                 </li>
               ))}
             </ul>
             <div className="mt-13.75">
-              <IgIcon size={16} />
+              <a href={redireLinkIg}>
+                <IgIcon size={16} />
+              </a>
             </div>
           </div>
 

@@ -35,10 +35,15 @@ export default function Header() {
         priority
       />
       <ul className="hidden lg:flex gap-12.5">
-        {navLinks.map((link) => (
-          <li key={link}>
-            <Text variant="favorit" className="nav-link" as="a" href="#">
-              {link}
+        {navLinks.map((navLink) => (
+          <li key={navLink.label}>
+            <Text
+              variant="favorit"
+              className="nav-link"
+              as="a"
+              href={navLink.href}
+            >
+              {navLink.label}
             </Text>
           </li>
         ))}

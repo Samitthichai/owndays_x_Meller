@@ -1,37 +1,32 @@
 "use client";
 
 import { Text } from "@/components/ui/typography";
+import useSelectedSwatch from "@/hooks/use-selected-swatch";
 import { ProductItem } from "@/types/product";
-import { buildImageUrl, formatPrice, formatProductCode } from "@/utils/format";
+import { formatPrice } from "@/utils/format";
 import Image from "next/image";
 import { useState } from "react";
 import ColorSwatches from "./color-swatch";
 import { Dialog } from "./dialog";
 import ProductDetailModal from "./product-detail-modal";
 
-interface ProductCardProps {
+type ProductCardProps = {
   product: ProductItem;
-}
+};
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const [selectedSkuIndex, setSelectedSkuIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-
-  const selectedSku = product.skus[selectedSkuIndex] ?? product.skus[0];
-  const primaryImage = buildImageUrl(selectedSku?.images[0]?.path ?? null);
-  const hoverImage = buildImageUrl(
-    selectedSku?.images[1]?.path ?? selectedSku?.images[0]?.path ?? null,
-  );
-  const hasHoverImage = hoverImage && hoverImage !== primaryImage;
-
-  const swatches = product.skus.map((sku) =>
-    sku.colors.map((c) => ({
-      hex_code: c.hex_code,
-      path: c.path,
-    })),
-  );
-
+  const {
+    setSelectedSkuIndex,
+    hasHoverImage,
+    swatches,
+    productCode,
+    price,
+    primaryImage,
+    hoverImage,
+    selectedSkuIndex,
+  } = useSelectedSwatch(product);
   return (
     <Dialog open={modalOpen} onOpenChange={setModalOpen}>
       <div
@@ -43,28 +38,26 @@ export default function ProductCard({ product }: ProductCardProps) {
         onClick={() => setModalOpen(true)}
       >
         <div
-          className="relative h-61.75 lg:h-73.25 overflow-hidden"
+          className="relative h-61.75 lg:h-73.25 overflow-hidden "
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {primaryImage ? (
             <>
               <Image
-                key={`primary-${selectedSkuIndex}`}
                 src={primaryImage}
                 alt={product.product.model_name}
                 fill
-                unoptimized
+                sizes="(max-width: 1024px) 100vw, 33vw"
                 loading="lazy"
                 className="object-cover transition-opacity duration-300"
               />
               {hasHoverImage && (
                 <Image
-                  key={`hover-${selectedSkuIndex}`}
                   src={hoverImage}
                   alt={product.product.model_name}
                   fill
-                  unoptimized
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                   loading="lazy"
                   className={`object-cover transition-opacity ease-in-out duration-300 ${
                     isHovered ? "opacity-100" : "opacity-0"
@@ -83,7 +76,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               {product.product.model_name}
             </Text>
             <Text variant="favorit" className="text-card-product-code">
-              {formatProductCode(product.product.code, selectedSku)}
+              {productCode}
             </Text>
           </div>
 
@@ -91,7 +84,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <ColorSwatches swatches={swatches} onSelect={setSelectedSkuIndex} />
             <div className="flex items-baseline justify-end">
               <Text variant="gt" className="text-card-product-price">
-                {formatPrice(product.selling_setting.price)}
+                {price}
               </Text>
               <Text variant="favorit" className="text-card-product-tax">
                 +tax

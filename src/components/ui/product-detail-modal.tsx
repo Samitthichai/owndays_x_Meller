@@ -1,10 +1,10 @@
 "use client";
 
 import { Text } from "@/components/ui/typography";
+import useProductDetailModal from "@/hooks/use-product-detail-modal";
 import { ProductSKU } from "@/types/product";
-import { buildImageUrl, formatProductCode, getColorName } from "@/utils/format";
+import { getColorName } from "@/utils/format";
 import Image from "next/image";
-import { useState } from "react";
 import CTAButton from "./cta-button";
 import { DialogContent } from "./dialog";
 import SkuChip from "./sku-chip";
@@ -30,19 +30,20 @@ export default function ProductDetailModal({
   inStock,
   initialSkuIndex = 0,
 }: ProductDetailModalProps) {
-  const [selectedSkuIndex, setSelectedSkuIndex] = useState(initialSkuIndex);
+  const {
+    images,
+    productCode,
+    setSelectedSkuIndex,
+    redirectToOwndaysProducts,
+    selectedSku,
+    selectedSkuIndex,
+  } = useProductDetailModal({
+    skus,
+    productBaseCode,
+    initialSkuIndex,
+  });
 
-  const selectedSku = skus[selectedSkuIndex] ?? skus[0];
-  const images =
-    selectedSku?.images.map((img) => buildImageUrl(img.path)) ?? [];
-  const productCode = selectedSku
-    ? formatProductCode(productBaseCode, selectedSku)
-    : productBaseCode;
-
-  function redirectToOwndaysProducts(code: string, skuId: number) {
-    const url = `https://www.owndays.com/jp/ja/products/${code}?sku=${skuId}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  }
+  const newLocal = "relative w-[420px] h-full shrink-0";
   return (
     <DialogContent
       side="right"
@@ -58,14 +59,13 @@ export default function ProductDetailModal({
     >
       <div className="flex h-72.25 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
         {images.map((src, index) => (
-          <div key={index} className="relative w-full h-full shrink-0">
+          <div key={index} className={newLocal}>
             <Image
               loading="lazy"
               src={src}
               alt={`${productName} ${index + 1}`}
               fill
-              unoptimized
-              className="object-contain"
+              className="object-contain "
             />
           </div>
         ))}

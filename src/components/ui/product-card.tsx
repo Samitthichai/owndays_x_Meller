@@ -110,6 +110,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         description={product.localization?.description ?? ""}
         skus={product.skus}
         initialSkuIndex={selectedSkuIndex}
+        inStock={product.selling_setting.in_stock}
       />
     </Dialog>
   );

@@ -324,9 +324,9 @@ body {
 .cta-btn:disabled,
 .cta-btn-disabled {
   background: var(--color-brand-disable);
-  color: rgba(0, 0, 0, 0.4);
   cursor: not-allowed;
   pointer-events: none;
+  font-style: color var(--color-brand-white);;
 }
 
 :root {

@@ -16,6 +16,7 @@ type ProductDetailModalProps = {
   price: string;
   description: string;
   skus: ProductSKU[];
+  inStock: number;
   initialSkuIndex?: number;
 };
 
@@ -26,6 +27,7 @@ export default function ProductDetailModal({
   price,
   description,
   skus,
+  inStock,
   initialSkuIndex = 0,
 }: ProductDetailModalProps) {
   const [selectedSkuIndex, setSelectedSkuIndex] = useState(initialSkuIndex);
@@ -103,6 +105,7 @@ export default function ProductDetailModal({
         <p className="product-description mt-5.75">{description}</p>
         <div className="mt-8 flex flex-col items-center gap-2.5">
           <CTAButton
+            disabled={inStock === 0}
             variant="orange"
             onClick={() =>
               redirectToOwndaysProducts(productBaseCode, selectedSku.id)

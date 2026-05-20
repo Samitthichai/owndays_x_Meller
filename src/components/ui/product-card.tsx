@@ -81,7 +81,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
 
           <div className="flex flex-col gap-3.75 justify-center">
-            <ColorSwatches swatches={swatches} onSelect={setSelectedSkuIndex} />
+            <ColorSwatches
+              swatches={swatches}
+              selected={selectedSkuIndex}
+              onSelect={setSelectedSkuIndex}
+            />
             <div className="flex items-baseline justify-end">
               <Text variant="gt" className="text-card-product-price">
                 {price}

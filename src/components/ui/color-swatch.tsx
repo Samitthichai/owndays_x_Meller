@@ -1,7 +1,6 @@
 "use client";
 
 import { buildImageUrl, cn } from "@/utils/format";
-import { useState } from "react";
 
 const MAX_VISIBLE = 4;
 
@@ -14,7 +13,8 @@ type Swatch = SwatchColor[];
 
 type Props = {
   swatches: Swatch[];
-  onSelect?: (index: number) => void;
+  selected: number;
+  onSelect: (index: number) => void;
 };
 
 function getSwatchStyle(colors: SwatchColor[]): React.CSSProperties {
@@ -80,15 +80,17 @@ function ColorSwatch({
   );
 }
 
-export default function ColorSwatches({ swatches, onSelect }: Props) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+export default function ColorSwatches({
+  swatches,
+  selected,
+  onSelect,
+}: Props) {
   const visible = swatches.slice(0, MAX_VISIBLE);
   const overflow = swatches.length - MAX_VISIBLE;
 
   function handleSelect(i: number, e: React.MouseEvent) {
     e.stopPropagation();
-    setSelectedIndex(i);
-    onSelect?.(i);
+    onSelect(i);
   }
 
   return (
@@ -97,7 +99,7 @@ export default function ColorSwatches({ swatches, onSelect }: Props) {
         <ColorSwatch
           key={i}
           colors={colors}
-          selected={selectedIndex === i}
+          selected={selected === i}
           onClick={(e) => handleSelect(i, e)}
         />
       ))}

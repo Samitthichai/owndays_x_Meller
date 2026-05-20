@@ -5,12 +5,12 @@ import IgIcon from "@/components/ui/icons/ig-icon";
 import { Text } from "@/components/ui/typography";
 import { navLinks, secondaryLinks } from "@/constants/nav-links";
 
-function NavLink({ label }: { label: string }) {
+function NavLink({ label, href }: { label: string; href: string }) {
   return (
     <Text
       variant="favorit"
       as="a"
-      href="#"
+      href={href}
       className="nav-link-footer font-semibold text-(--color-brand-orange)"
     >
       {label}
@@ -93,7 +93,7 @@ export default function Footer() {
             key={navLink.label}
             className="flex items-center justify-between px-7.5 py-4 border-b-2 border-(--color-brand-orange) h-15"
           >
-            <NavLink label={navLink.label} />
+            <NavLink label={navLink.label} href={navLink.href} />
             <ChevronRightIcon size={11} />
           </div>
         ))}
@@ -131,7 +131,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-5">
               {navLinks.map((navLink) => (
                 <li key={navLink.label}>
-                  <NavLink label={navLink.label} />
+                  <NavLink label={navLink.label} href={navLink.href} />
                 </li>
               ))}
             </ul>

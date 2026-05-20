@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "OWNDAYS × MELLER",
     images: [
       {
-        url: "/public/og_owndays_meller_meta.jpg",
+        url: "public/ogp_ownday_meller.jpg",
         width: 1200,
         height: 630,
         alt: "OWNDAYS × MELLER",

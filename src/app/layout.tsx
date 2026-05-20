@@ -1,5 +1,6 @@
 import Footer from "@/components/layout/footer/footer";
 import Header from "@/components/layout/header/header";
+import BfcacheReset from "@/components/providers/bfcache-reset";
 import QueryProvider from "@/components/providers/query-provider";
 import type { Metadata } from "next";
 import {
@@ -71,6 +72,7 @@ export default function RootLayout({
       >
         <body className="min-h-full flex flex-col ">
           <QueryProvider>
+            <BfcacheReset />
             <Header />
             {children}
             <Footer />

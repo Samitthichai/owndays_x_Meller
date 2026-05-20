@@ -46,7 +46,7 @@ export default function ProductDetailModal({
   return (
     <DialogContent
       side="right"
-      className="bg-(--color-brand-white) rounded-[20px] lg:rounded-l-[20px] overflow-hidden ease-in-out"
+      className="bg-(--color-brand-white) rounded-[20px] lg:rounded-l-[20px] overflow-hidden ease-in-out gap-7.5"
       title={
         <Text
           variant="gt"
@@ -56,12 +56,9 @@ export default function ProductDetailModal({
         </Text>
       }
     >
-      <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+      <div className="flex h-72.25 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
         {images.map((src, index) => (
-          <div
-            key={index}
-            className="relative w-63 lg:w-105 aspect-16/10 shrink-0 snap-center"
-          >
+          <div key={index} className="relative w-full h-full shrink-0">
             <Image
               loading="lazy"
               src={src}
@@ -85,7 +82,7 @@ export default function ProductDetailModal({
         ))}
       </div>
 
-      <div className="bg-(--color-brand-black) text-white px-6 lg:px-15.25 py-8 lg:py-10 mt-6 lg:mt-19.75 flex-1">
+      <div className="bg-(--color-brand-black) text-white px-6 lg:px-15.25 py-8  mt-6  flex-1 ">
         <div className="grid grid-cols-[100px_1fr] gap-y-4 font-[514] text-[14px]">
           <Text variant="favorit">P/No.</Text>
           <Text variant="favorit">{productCode}</Text>

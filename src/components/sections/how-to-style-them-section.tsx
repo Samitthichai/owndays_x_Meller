@@ -13,24 +13,23 @@ import nayahTigrisCarbon from "@/assets/images/howToStyleThem/product_nayah_tigr
 import tanaTigrisCarbon from "@/assets/images/howToStyleThem/product_tana_tigris_carbon.png";
 import tariTigrisst from "@/assets/images/howToStyleThem/product_tari_tigris-carbon.png";
 import { Text } from "@/components/ui/typography";
-import ImageCarouselCard from "../ui/imageCarouselCard";
-
-const styleImages = [
-  jasmiMossOlive,
-  tariTigrisst,
-  nayahAllBlack,
-  cumbiTigrisCarbon,
-  nayahBlackOrange,
-  kessieAllBlack,
-  nayahTigrisCarbon,
-  cumbiTigirsCarbon,
-  adisaAllBlack,
-  chauenTigirs,
-  adisaAllOlive,
-  tanaTigrisCarbon,
-];
+import ImageCarouselCard from "../ui/image-carousel-card";
 
 export default function HowToStyleThem() {
+  const styleImages = [
+    jasmiMossOlive,
+    tariTigrisst,
+    nayahAllBlack,
+    cumbiTigrisCarbon,
+    nayahBlackOrange,
+    kessieAllBlack,
+    nayahTigrisCarbon,
+    cumbiTigirsCarbon,
+    adisaAllBlack,
+    chauenTigirs,
+    adisaAllOlive,
+    tanaTigrisCarbon,
+  ];
   return (
     <div className="flex flex-col gap-2 overflow-hidden">
       <div className="relative">
@@ -53,7 +52,6 @@ export default function HowToStyleThem() {
       </div>
 
       <div className="flex w-full mt-6 pt-15 lg:pt-25 overflow-x-auto scrollbar-hide overscroll-x-contain">
-
         {styleImages.map((src, index) => (
           <div
             key={index}

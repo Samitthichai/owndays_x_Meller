@@ -326,7 +326,7 @@ body {
   background: var(--color-brand-disable);
   cursor: not-allowed;
   pointer-events: none;
-  font-style: color var(--color-brand-white);;
+  color: var(--color-brand-white);
 }
 
 :root {

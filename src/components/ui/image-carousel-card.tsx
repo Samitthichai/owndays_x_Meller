@@ -12,6 +12,7 @@ export default function ImageCarouselCard(props: ImageCarouselCardProps) {
         src={imageSrc}
         alt={`Style ${index + 1}`}
         fill
+        sizes="(max-width: 1024px) 326px, 405px"
         className="object-cover pointer-events-none transition-transform duration-500 ease-out group-hover:scale-110"
         draggable={false}
       />

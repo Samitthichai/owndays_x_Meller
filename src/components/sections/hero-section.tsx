@@ -18,7 +18,6 @@ export default function HeroSection() {
         src={heroDesktop}
         alt="OWNDAYS x MELLER hero"
         fill
-        priority
         sizes="100vw"
         className="object-cover object-top hidden lg:block"
       />

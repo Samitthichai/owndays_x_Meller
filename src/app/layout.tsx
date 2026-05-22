@@ -1,7 +1,9 @@
 import Footer from "@/components/layout/footer/footer";
 import Header from "@/components/layout/header/header";
 import QueryProvider from "@/components/providers/query-provider";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
+
 import {
   Barlow_Condensed,
   DM_Sans,
@@ -70,6 +72,7 @@ export default function RootLayout({
         className={`${inter.variable} ${barlowCondensed.variable} ${dmSans.variable} ${notoSansJP.variable} h-full antialiased`}
       >
         <body className="min-h-full flex flex-col ">
+          <Analytics />
           <QueryProvider>
             <Header />
             {children}
